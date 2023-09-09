@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import React, {useState, useEffect} from 'react'
+import {BsChevronLeft, BsChevronRight, BsSliders } from "react-icons/bs";
 import {GoDotFill} from 'react-icons/go' 
 import Navbar1 from '../assets/Navbar1.jpg'
 import Navbar2 from '../assets/Navbar2.jpg'
@@ -10,7 +10,7 @@ import Navbar6 from '../assets/Navbar6.jpg'
 
 const slides = [
   {
-    title: 'Read about the vast wildlife Preserves',
+    title: 'Read on the vast wildlife Preserves',
     Description: 'Amboseli || Arbedares || Samburu',
     url: Navbar4,
 
@@ -61,6 +61,20 @@ const Header = () => {
     
   }
 
+  const goToSlide = (slideIndex) => {
+    setCurrentIndex(slideIndex)
+  }
+
+  useEffect(() => {
+  const interval = setInterval(() => {
+   nextSlide();
+    }, 5000); // 5000 milliseconds (5 seconds)
+
+    return () => {
+     clearInterval(interval);
+   };
+  }, []);
+
 
   return (
     <div className ='group max-w-[1400px] h-[600px] w-full m-auto '>
@@ -69,8 +83,8 @@ const Header = () => {
       </div>
 
       <div className=' flex flex-1 flex-col absolute top-[40%] right-[35%] p-7 bg-gradient-to-b from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.4)] '>
-       <h1 className = 'text-5xl text-gray-300 mb-4'>{slides[currentIndex].title}</h1>
-       <h3 className='text-3xl text-gray-400 text-center'>{slides[currentIndex].Description}</h3>
+       <h1 className = 'text-5xl font-bold text-gray-300 mb-4'>{slides[currentIndex].title}</h1>
+       <h3 className='text-3xl font-bold text-gray-400 text-center'>{slides[currentIndex].Description}</h3>
         </div>
 
 
@@ -83,12 +97,12 @@ const Header = () => {
       </div>
       <div className= 'flex top-4 -translate-x-0 translate-y-[-90%] justify-center py-2'>
       {slides.map((slides, slideIndex) =>
-      <div className='text-2xl cursor-pointer'>
-        <GoDotFill size={35}/>
+      <div key={slideIndex} onClick={() =>goToSlide(slideIndex)} className='text-2xl cursor-pointer'>
+        <GoDotFill size={35} className ='fill-black/100 hover:fill-black/40'/>
       </div>
       )}
       </div>
-    </div>
+    </div> 
   )
 }
 
