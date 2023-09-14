@@ -10,6 +10,12 @@ import Navbar6 from '../assets/Navbar6.jpg'
 
 const slides = [
   {
+    title: 'Beautiful Sundowner Experiences',
+    Description: 'Lake Victoria || Lake Nakuru || Elementaita',
+    url: Navbar6
+  
+  },
+  {
     title: 'Read on the vast wildlife Preserves',
     Description: 'Amboseli || Arbedares || Samburu',
     url: Navbar4,
@@ -22,12 +28,12 @@ const slides = [
 },
 {
   title: 'Learn about Animal Ophanages',
-  Description: 'Girrafe Center || Bomas of Kenya || Nairobi National Park',
+  Description: 'Girrafe Center || Nairobi National Park',
   url: Navbar3
 
 },
 {
-  title: 'Learn of the enjoyable hiking areas',
+  title: 'Challenging hiking areas',
   Description: 'Mt. Longonot || Mt. Kenya || Ngong Hills',
   url: Navbar2
 },
@@ -35,45 +41,43 @@ const slides = [
   title: 'Beach Views along Indian Ocean',
   Description: 'Lamu || Kilifi || Mombasa',
   url: Navbar5
-}, 
-{
-  title: 'Know about the Kenyan Culture',
-  Description: 'The Maasai Dance ',
-  url: Navbar6
-
 }
 ] 
 
 const Header = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [activeDotIndex, setActiveDotIndex] = useState(0)
 
   const prevSlide = () => {
       const isFirstSlide = currentIndex === 0
       const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1
       setCurrentIndex(newIndex)
+      setActiveDotIndex(newIndex)
   }
 
   const nextSlide = () => {
     const isLastSlide = currentIndex === slides.length - 1
     const newIndex = isLastSlide ? 0 : currentIndex + 1
     setCurrentIndex(newIndex)
+    setActiveDotIndex(newIndex)
     
   }
 
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex)
+    setActiveDotIndex(slideIndex)
   }
 
   useEffect(() => {
-  const interval = setInterval(() => {
-   nextSlide();
-    }, 5000); // 5000 milliseconds (5 seconds)
+    const intervalId = setInterval(() => {
+      nextSlide()
+    }, 5000); // Adjust the time interval (in milliseconds) as needed
 
     return () => {
-     clearInterval(interval);
-   };
-  }, []);
+      clearInterval(intervalId);
+    };
+  }, [currentIndex])
 
 
   return (
@@ -97,8 +101,10 @@ const Header = () => {
       </div>
       <div className= 'flex top-4 -translate-x-0 translate-y-[-90%] justify-center py-2'>
       {slides.map((slides, slideIndex) =>
-      <div key={slideIndex} onClick={() =>goToSlide(slideIndex)} className='text-2xl cursor-pointer'>
-        <GoDotFill size={35} className ='fill-black/100 hover:fill-black/40'/>
+      <div key={slideIndex} 
+      onClick={() =>goToSlide(slideIndex)} 
+      className='text-2xl cursor-pointer '>
+        <GoDotFill size={35} className ={`fill-black/100 hover:fill-black/40 ${ slideIndex === activeDotIndex ? 'text-black/40' : '' }`}/>
       </div>
       )}
       </div>

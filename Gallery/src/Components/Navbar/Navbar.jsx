@@ -12,7 +12,7 @@ const Navbar = () => {
     <div className='w-[100%] flex lg:flex-row '>
 
       <div className='flex justify-start items-center' >
-          <h1 className='lg:text-4xl text-2xl py-2 md:pl-10 text-[#006400] font-bold'>ExploreKenya</h1>
+          <h1 className='lg:text-4xl text-2xl py-2 md:pl-10 text-[#006400] font-bold'>TaliiKenya</h1>
       </div>
 
 
