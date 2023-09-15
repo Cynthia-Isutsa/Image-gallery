@@ -22,7 +22,7 @@ const slides = [
 
 },
 {
-  title: 'The great wildbeast Migration',
+  title: 'The great wildebeest Migration',
   Description: 'Maasai Mara Game Reserve',
   url: Navbar1
 },
