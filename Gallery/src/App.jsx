@@ -1,16 +1,18 @@
 import React from 'react'
-import { Navbar, Header, About, Explore, Footer } from './Components'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import { Home } from './pages'
+
 
 
 const App = () => {
   return (
     <div >
-      <Navbar />
-      <Header/>
-      <About />
-      <Explore />
-      <Footer />
-
+     <Router>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        {/*</Routes><Route path='' element ={</>} />*/}
+      </Routes>
+     </Router>
     </div>
   )
 }
