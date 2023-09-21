@@ -15,10 +15,10 @@ const Navbar = () => {
           <li className='font-semibold cursor-pointer hover:text-red-600'><a href='#Blog'>Blog</a></li>
         </ul>
       </div>
-      <div className ='bg-red-500 px-5 md:px-4 xl:px-8 py-2 ml-8 rounded-full'>
+      <div className ='bg-red-500 px-5 md:px-4 xl:px-8 py-2 rounded-full'>
         <button className='cursor-pointer hover:text-white'>
           <a href='#' className=' flex flex-row justify-center items-center md:font-semibold'>
-           Subscribe <BsYoutube className='ml-2 flex items-center hover:text-white'/>
+           Subscribe <BsYoutube className='ml-2 flex items-center'/>
         </a></button>
       </div>
     </div>
