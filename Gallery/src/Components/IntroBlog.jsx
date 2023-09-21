@@ -4,9 +4,9 @@ import intro from "../assets/intro.jpg"
 const IntroBlog = () => {
   return (
     <div>
-      <div className='flex mt-8'>
-        <div>
-          <img src={intro} alt='introBlog' />
+      <div className='flex flex-1 mx-5 gap-8 mt-8'>
+        <div className=''>
+          <img src={intro} alt='introBlog' className= 'w-full h-full' />
         </div>
         <div>
        <h1>Discovering the Beauty and Diversity of Kenya: A Journey Through East Africa's Gem</h1>
