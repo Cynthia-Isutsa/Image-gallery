@@ -6,7 +6,7 @@ const Home = () => {
     <div>
       <Navbar />
       <Header />
-      <IntroBlog />
+      {/*<IntroBlog />*/}
       <BlogList />
       <Footer />
     </div>
