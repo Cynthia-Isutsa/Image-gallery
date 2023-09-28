@@ -1,6 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import { Home } from './pages'
+import { Home, Category } from './pages'
 
 
 
@@ -9,8 +9,8 @@ const App = () => {
     <div >
      <Router>
       <Routes>
-        <Route path='/' element={<Home />} />
-        {/*</Routes><Route path='' element ={</>} />*/}
+        <Route exact path='/' element={<Home />} />
+        <Route path='/category/:id' element ={<Category />} />
       </Routes>
      </Router>
     </div>
